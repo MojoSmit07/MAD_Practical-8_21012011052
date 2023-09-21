@@ -5,7 +5,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
-
+<androidx.core.widget.NestedScrollView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
     <TextView
 
         android:id="@+id/textView3"
@@ -19,7 +24,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <com.google.android.material.card.MaterialCardView
-        android:id="@+id/card"
+        android:id="@+id/card1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
 
@@ -38,7 +43,7 @@
             <ImageView
                 android:id="@+id/imageView"
                 android:layout_width="match_parent"
-                android:layout_height="194dp"
+                android:layout_height="180dp"
                 android:scaleType="fitXY"
                 app:srcCompat="@drawable/img" />
 
@@ -70,16 +75,16 @@
 
                 <TextClock
                     android:id="@+id/clocktime"
-
                     android:format12Hour="hh:mm:ss a MMM dd yyyy"
-
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_margin="20dp"
                     android:padding="10dp"
                     android:textAlignment="center"/>
+
                 <com.google.android.material.button.MaterialButton
+                    android:id="@+id/CreateBtn"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Create Alarm"
@@ -90,6 +95,63 @@
     </com.google.android.material.card.MaterialCardView>
 
 
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/card2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        app:cardElevation="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@id/card1"
+        app:layout_constraintTop_toBottomOf="@+id/card1">
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+
+            <ImageView
+                android:id="@+id/imageView2"
+                android:layout_width="match_parent"
+                android:layout_height="180dp"
+                android:scaleType="fitXY"
+                app:srcCompat="@drawable/img" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Set Alarm Time"
+                    android:textAppearance="?attr/textAppearanceHeadline6" />
+
+
+                <TextClock
+                    android:id="@+id/clocktime2"
+                    android:format12Hour="hh:mm:ss a MMM dd yyyy"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_margin="20dp"
+                    android:padding="10dp"
+                    android:textAlignment="center"/>
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/CancelBtn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Cancel Alarm"
+                    app:icon="@drawable/baseline_add_alarm_24"/>
+
+            </LinearLayout>
+        </LinearLayout>
+
+    </com.google.android.material.card.MaterialCardView>
 </androidx.constraintlayout.widget.ConstraintLayout>
-    Show quoted text
+</androidx.core.widget.NestedScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>
