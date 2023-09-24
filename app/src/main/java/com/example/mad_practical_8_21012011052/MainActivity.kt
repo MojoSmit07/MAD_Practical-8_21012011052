@@ -1,49 +1,37 @@
 package com.example.mad_practical_8_21012011052
 
+import android.app.PendingIntent
 import android.app.TimePickerDialog
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
 import android.widget.TimePicker
+import com.google.android.material.button.MaterialButton
 import com.google.android.material.card.MaterialCardView
+import java.sql.Time
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        val card= findViewById<MaterialCardView>(R.id.card2)
+        val alarmbutton=findViewById<Button>(R.id.CreateBtn)
+        card.visibility=View.GONE
+        alarmbutton.setOnClickListener {
+            card.visibility=View.VISIBLE
+            TimePickerDialog(this,{tp,hour,minute->setalarmtime(hour, minute)},11,0,false).show()
 
-
-        val card1 = findViewById<MaterialCardView>(R.id.card1)
-        val btn1 = findViewById<Button>(R.id.CreateBtn)
-        val card2 = findViewById<MaterialCardView>(R.id.card2)
-        val btn2 = findViewById<Button>(R.id.CancelBtn)
-
-
-
-
-
-        card1.setOnClickListener(){
-
-        }
-
-        btn1.setOnClickListener(){
-            TimePickerDialog(this, {tp,hour,minute -> setAlarmTime(hour,minute)}, 11,0,false).show()
-            //card2.visibility = View.VISIBLE
-        }
-
-        btn2.setOnClickListener(){
-            card2.visibility = View.GONE
         }
 
 
     }
-
-    fun setAlarmTime(hour: Int, minute:Int){
-
-       // card2.visibility = View.GONE
-
+    fun setalarmtime(hour:Int,minute:Int){
 
     }
-
+    fun setalarm(militime:Long,acton:String){
+        val intentalarm=Intent(applicationContext,AlarmBroadcastReceiver::class.java)
+        val pendingIntent= PendingIntent.getBroadcast(applicationContext,4356,intentalarm,PendingIntent.FLAG_UPDATE_CURRENT)
+    }
 }
