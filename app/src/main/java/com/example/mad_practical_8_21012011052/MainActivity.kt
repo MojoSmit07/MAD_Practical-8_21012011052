@@ -27,7 +27,7 @@ class MainActivity : AppCompatActivity() {
 
         addAlarm.setOnClickListener {
             TimePickerDialog(this, {tp, hour, minute -> setAlarmTime(hour, minute)}, Calendar.HOUR,Calendar.MINUTE,false).show()
-            TimePickerDialog(this, { tp, hour, minute -> sendDialogDataToActivity(hour, minute) }, Calendar.HOUR, Calendar.MINUTE, false).show()
+            TimePickerDialog(this, {tp, hour, minute -> sendDialogDataToActivity(hour, minute) }, Calendar.HOUR, Calendar.MINUTE, false).show()
             card.visibility = View.VISIBLE
         }
 
