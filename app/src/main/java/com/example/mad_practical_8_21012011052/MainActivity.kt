@@ -51,7 +51,9 @@ class MainActivity : AppCompatActivity() {
     fun setAlarm(millitime : Long, action : String) {
         val intentalarm = Intent(applicationContext, AlarmBroadcastReceiver::class.java)
         intentalarm.putExtra(AlarmBroadcastReceiver.ALARMKEY,action)
-        val pendingintent = PendingIntent.getBroadcast(applicationContext,4356,intentalarm,PendingIntent.FLAG_UPDATE_CURRENT)
+        val pendingintent = PendingIntent.getBroadcast(applicationContext,4356,intentalarm,
+            PendingIntent.FLAG_IMMUTABLE or
+            PendingIntent.FLAG_UPDATE_CURRENT )
         val alarmManager = getSystemService(ALARM_SERVICE) as AlarmManager
         if(action == AlarmBroadcastReceiver.ALARMSTART){
             alarmManager.setExact(AlarmManager.RTC_WAKEUP,millitime,pendingintent)
